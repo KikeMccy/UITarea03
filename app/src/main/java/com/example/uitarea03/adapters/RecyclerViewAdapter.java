@@ -35,6 +35,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Items item=listItems.get(position);
         Holder Holder= (Holder) holder;
+        String currentUrl = item.getImagen();
+        Glide.with(context)
+                .load(currentUrl)
+                .into(Holder.ivFoto);
         Holder.tvNombre.setText(item.getNombre());
         Holder.tvApellido.setText(item.getApellido());
     }
@@ -50,6 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
         public Holder(@NonNull View itemView) {
             super(itemView);
+            ivFoto=(ImageView) itemView.findViewById(R.id.ivFoto);
             tvNombre=itemView.findViewById(R.id.tvNombre);
             tvApellido=itemView.findViewById(R.id.tvApellido);
         }

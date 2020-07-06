@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Listado listado= response.body();
                 Listado.Usuario[] usuarios = listado.getObjects();
                 for (int i=0;i<usuarios.length;i++) {
-                    ListItems.add(new Items(usuarios[i].getFirst_name(),usuarios[i].getLast_name()));
+                    ListItems.add(new Items(usuarios[i].getAvatar(), usuarios[i].getFirst_name(),usuarios[i].getLast_name()));
                 }
             }
             @Override
